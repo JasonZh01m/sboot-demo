@@ -1,9 +1,13 @@
 package com.example;
 
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 /**
@@ -15,9 +19,11 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * 否则会报：Cannot determine embedded database driver class for database type NONE
  */
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
+@MapperScan("com.example.mapper")
 public class SbootDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SbootDemoApplication.class, args);
     }
+
 }

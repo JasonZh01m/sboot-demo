@@ -1,8 +1,7 @@
 package com.example.model;
 
-import org.springframework.data.annotation.Id;
-
 import java.io.Serializable;
+import java.util.logging.Logger;
 
 /**
  * Created by JasonZh on 2017/8/16.
@@ -10,22 +9,31 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     private static final long serialVersionUID = -1L;
-    private String username;
+
+    private Long id;
+    private String name;
     private Integer age;
 
-    public User(String username, Integer age) {
-        this.username = username;
+    public User(Long id, String name, Integer age) {
+        this.id = id;
+        this.name = name;
         this.age = age;
     }
-    // 省略getter和setter
 
-
-    public String getUsername() {
-        return username;
+    public Long getId() {
+        return id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getAge() {
@@ -36,4 +44,12 @@ public class User implements Serializable {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
