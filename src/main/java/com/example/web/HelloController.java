@@ -2,9 +2,7 @@ package com.example.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,9 +13,10 @@ import java.util.Map;
 @Controller
 public class HelloController {
 
-    @RequestMapping("/hello")
-    public String index() {
-        return "Hello World";
+    @RequestMapping(value = "/testaop", method = RequestMethod.GET)
+    @ResponseBody
+    public String testAOP(@RequestParam String name) {
+        return "Hello " + name;
     }
 
     @RequestMapping(value = "/userinfo", method = RequestMethod.GET)
