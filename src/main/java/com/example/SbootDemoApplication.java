@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
@@ -20,6 +21,7 @@ import org.springframework.context.annotation.Bean;
  */
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @MapperScan("com.example.mapper")
+@EnableCaching
 public class SbootDemoApplication {
 
     public static void main(String[] args) {
